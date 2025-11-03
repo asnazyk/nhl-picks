@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Puck Picks — Teams & Rosters</title>
+  <style>
+    :root{
+      --bg:#0B1220; --bg2:#10182B; --panel:#111B33; --line:rgba(255,255,255,.1);
+      --muted:#A0AEC0; --primary:#1D4ED8; --primaryH:#2563EB; --text:#E7ECF6;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,sans-serif}
+    a{color:inherit;text-decoration:none}
+    header{background:linear-gradient(to bottom,var(--bg),var(--bg2));border-bottom:1px solid var(--line)}
+    .navwrap{max-width:1100px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:16px}
+    .logo{width:270px;height:auto;display:block;flex:0 0 auto}
+    .topbar{display:flex;align-items:center;justify-content:flex-end;gap:40px;flex:1}
+    .nav{display:flex;gap:40px;align-items:center;background:rgba(255,255,255,.04);border:1px solid var(--line);padding:10px 28px;border-radius:14px}
+    .nav a{color:#DDE6FF;opacity:.95;font-weight:700;font-size:1.05rem;letter-spacing:.4px}
+    .nav a:hover{opacity:1}
+    .section{max-width:1100px;margin:34px auto;padding:0 20px}
+    h1{font-size:2rem;margin:0 0 12px}
+    p.muted{color:var(--muted);margin:0 0 18px}
+    .tablewrap{overflow:auto;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
+    table{width:100%;border-collapse:separate;border-spacing:0;min-width:900px}
+    thead th{position:sticky;top:0;background:#16213A;color:#E7ECF6;text-transform:uppercase;font-size:13px;letter-spacing:.05em;padding:12px;border-bottom:1px solid var(--line)}
+    tbody td{padding:12px;border-bottom:1px solid var(--line)}
+    tbody tr:nth-child(odd){background-color:rgba(255,255,255,.02)}
+    tbody tr:hover{background-color:rgba(255,255,255,.04)}
+    .pos{font-weight:700;color:#CFE2FF;white-space:nowrap}
+    footer{text-align:center;color:var(--muted);padding:28px 0;border-top:1px solid var(--line);margin-top:40px}
+    @media (max-width:720px){
+      .topbar{flex-direction:column;align-items:flex-start;gap:10px}
+      .nav{gap:24px;padding:8px 16px}
+      .nav a{font-size:1rem}
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="navwrap">
+      <img src="puck-picks-logo.png" alt="Puck Picks Logo" class="logo" />
+      <div class="topbar">
+        <nav class="nav">
+          <a href="index.html">Home</a>
+          <a href="dashboard.html">Dashboard</a>
+          <a href="teams.html">Teams</a>
+          <a href="login.html">Login</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Content -->
+  <section class="section">
+    <h1>Teams & Rosters</h1>
+    <p class="muted">Current team rosters by draft position. Update this page anytime by editing the table below.</p>
+
+    <div class="tablewrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Position</th>
+            <th>RICO</th>
+            <th>DAVE</th>
+            <th>ANDY</th>
+            <th>MIKE</th>
+            <th>SOPHIA</th>
+            <th>BRANDON</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="pos">F</td><td>Connor McDavid</td><td>Nikita Kucherov</td><td>Leon Draisaitl</td><td>Nathan Mackinnon</td><td>Mitch Marner</td><td>Martin Nečas</td></tr>
+          <tr><td class="pos">F</td><td>Jack Eichel</td><td>David Pastrnak</td><td>William Nylander</td><td>Auston Matthews</td><td>Sidney Crosby</td><td>Adrian Kempe</td></tr>
+          <tr><td class="pos">F</td><td>Mikko Rantanen</td><td>Artemi Panarin</td><td>Clayton Keller</td><td>Kyle Connor</td><td>Sam Reinhart</td><td>Sebastian Aho</td></tr>
+          <tr><td class="pos">F</td><td>Filip Forsberg</td><td>Mark Scheifele</td><td>Connor Bedard</td><td>Nick Suzuki</td><td>John Tavares</td><td>Brayden Point</td></tr>
+          <tr><td class="pos">F</td><td>Alex Ovechkin</td><td>Robert Thomas</td><td>Frank Nazar</td><td>Kirill Kaprizov</td><td

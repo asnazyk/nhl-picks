@@ -1,156 +1,234 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Puck Picks — Fantasy Hockey, finally easy.</title>
-  <link rel="stylesheet" href="styles.css"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <!-- Strong, condensed display + clean UI font -->
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Chakra+Petch:wght@600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      background-color: #0B1220;
+      color: white;
+      font-family: "Inter", system-ui, -apple-system, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      text-align: center;
+      padding: 25px 0 10px;
+      background: linear-gradient(to bottom, #0B1220, #10182B);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    h1, h2, h3 {
+      font-weight: 700;
+      margin: 0;
+    }
+
+    a.button {
+      background-color: #1D4ED8;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      margin: 5px;
+      display: inline-block;
+    }
+
+    a.button:hover {
+      background-color: #2563EB;
+    }
+
+    .section {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .card {
+      background: #111B33;
+      padding: 20px;
+      border-radius: 12px;
+      flex: 1;
+      min-width: 260px;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background: #111B33;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    th {
+      background-color: #16213A;
+      text-transform: uppercase;
+      font-size: 13px;
+      letter-spacing: 0.05em;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .footer {
+      text-align: center;
+      color: #A0AEC0;
+      padding: 30px 0;
+      font-size: 14px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      margin-top: 50px;
+    }
+  </style>
 </head>
 <body>
-  <!-- Sticky Header -->
-  <header class="header">
-    <div class="container bar">
-      <a class="brand" href="/">
-        <!-- Inline SVG Wordmark (retro hockey vibe) -->
-        <div class="logo-wrap" aria-label="Puck Picks">
-          <svg class="pp-logo" viewBox="0 0 540 120" role="img" aria-labelledby="logoTitle">
-            <title id="logoTitle">Puck Picks</title>
-            <!-- goal light underline -->
-            <defs>
-              <linearGradient id="glow" x1="0" x2="1" y1="0" y2="0">
-                <stop offset="0" stop-color="#ef4444"/>
-                <stop offset="1" stop-color="#3b82f6"/>
-              </linearGradient>
-            </defs>
-            <!-- angled slab letters, simplified geometric (Chakra-style) -->
-            <g fill="#EAF1FF">
-              <path d="M24 94V26h60c24 0 38 13 38 34s-14 34-38 34H24Zm60-22c9 0 14-5 14-12s-5-12-14-12H48v24h36Z"/>
-              <path d="M144 94V26h26v68h-26Z"/>
-              <path d="M188 60c0-21 16-36 40-36s40 15 40 36-16 36-40 36-40-15-40-36Zm54 0c0-9-6-15-14-15s-14 6-14 15 6 15 14 15 14-6 14-15Z"/>
-              <path d="M300 94V26h26v46l34-46h30v68h-26V58l-34 44h-30Z"/>
-              <!-- divider dot -->
-              <circle cx="410" cy="60" r="5" fill="url(#glow)"/>
-              <!-- PICKS -->
-              <path d="M438 94V26h58c21 0 34 10 34 26 0 12-6 20-18 24l20 18h-32l-16-16h-20v16h-26Zm56-38c8 0 12-3 12-8s-4-8-12-8h-30v16h30Z"/>
-              <path d="M542 94V26h-26v68h26Z" transform="translate(-20)"/>
-            </g>
-            <!-- underline glow bar -->
-            <rect x="14" y="106" width="512" height="6" rx="3" fill="url(#glow)"/>
-          </svg>
-          <span class="tagline">Fantasy, without the fuss.</span>
-        </div>
-      </a>
 
-      <nav class="nav">
-        <a class="active" href="/">Home</a>
-        <a href="/dashboard.html">Dashboard</a>
-        <a href="/login">Login</a>
-      </nav>
-    </div>
+  <!-- Header + Logo -->
+  <header>
+    <svg viewBox="0 0 520 160" width="320" height="120" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="ice" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0%" stop-color="#EAF2FF"/>
+          <stop offset="100%" stop-color="#C9D7F2"/>
+        </linearGradient>
+        <linearGradient id="chrome" x1="0" x2="1" y1="0" y2="0">
+          <stop offset="0%" stop-color="#F9FBFF"/>
+          <stop offset="40%" stop-color="#C8D1E2"/>
+          <stop offset="60%" stop-color="#FFFFFF"/>
+          <stop offset="100%" stop-color="#B9C6DB"/>
+        </linearGradient>
+      </defs>
+
+      <rect x="6" y="6" width="508" height="148" rx="18"
+            fill="none" stroke="white" stroke-width="6"/>
+
+      <g transform="translate(24,92) scale(1.05)">
+        <path d="M0 18 L128 -40" stroke="white" stroke-width="10" stroke-linecap="round"/>
+        <path d="M128 -40 l18 -8" stroke="white" stroke-width="10" stroke-linecap="round"/>
+        <rect x="112" y="-46" width="44" height="16" rx="2" fill="#FFFFFF"/>
+      </g>
+      <g transform="translate(370,92) scale(1.05)">
+        <path d="M128 18 L0 -40" stroke="white" stroke-width="10" stroke-linecap="round"/>
+        <path d="M0 -40 l-18 -8" stroke="white" stroke-width="10" stroke-linecap="round"/>
+        <rect x="-36" y="-46" width="44" height="16" rx="2" fill="#FFFFFF"/>
+      </g>
+
+      <g transform="translate(255,34)">
+        <ellipse cx="0" cy="0" rx="28" ry="14" fill="#0B0F17" stroke="white" stroke-width="4"/>
+        <path d="M-60 -6 h36 M-60 0 h44 M-60 6 h28"
+              stroke="white" stroke-width="4" stroke-linecap="round" opacity="0.9"/>
+      </g>
+
+      <rect x="34" y="56" width="452" height="22" rx="6" fill="url(#ice)" opacity="0.9"/>
+
+      <g transform="translate(44,44)">
+        <text x="0" y="68"
+              font-family="Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif"
+              font-size="86" letter-spacing="2"
+              fill="url(#chrome)" stroke="#0A0F18" stroke-width="6">
+          PUCK
+        </text>
+        <text x="278" y="68"
+              font-family="Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif"
+              font-size="86" letter-spacing="2"
+              fill="url(#chrome)" stroke="#0A0F18" stroke-width="6">
+          PICKS
+        </text>
+      </g>
+
+      <text x="260" y="134" text-anchor="middle"
+            font-family="system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial"
+            font-size="18" fill="#C9D7F2" opacity="0.9" style="letter-spacing:.5px">
+        Fantasy, without the fuss.
+      </text>
+    </svg>
   </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="container">
-      <h1>Fantasy Hockey — finally easy.</h1>
-      <p class="lede">Weekly picks. Simple starters. Head-to-head. No spreadsheets, no stress.</p>
-      <div class="btn-row">
-        <a class="btn btn-primary" href="/dashboard.html">Enter League</a>
-        <a class="btn btn-outline" href="/register">Create Account</a>
-      </div>
+  <!-- Hero Section -->
+  <section class="section" style="text-align:center;">
+    <h1 style="font-size:2.4rem; margin-bottom:10px;">Fantasy Hockey — finally easy.</h1>
+    <p style="color:#A0AEC0;">Weekly picks. Simple rosters. Head-to-head. No spreadsheets, no stress.</p>
+    <div style="margin-top:20px;">
+      <a href="dashboard.html" class="button">Enter League</a>
+      <a href="#" class="button" style="background:#374151;">Create Account</a>
     </div>
   </section>
 
-  <!-- How it works -->
+  <!-- How it Works -->
   <section class="section">
-    <div class="container">
-      <h2 class="section-title">How it works</h2>
-      <div class="grid3">
-        <div class="card">
-          <div class="card-head">
-            <span class="chip chip-orange">30</span>
-            <h4>Weekly picks</h4>
-          </div>
-          <p>Choose winners for <strong>30 randomized matchups</strong> every week. <strong>+1 point</strong> per correct pick.</p>
-        </div>
-        <div class="card">
-          <div class="card-head">
-            <span class="chip chip-blue">3F + 2D</span>
-            <h4>Simple roster</h4>
-          </div>
-          <p>6F + 4D roster. Start <strong>3 forwards</strong> and <strong>2 defense</strong>. Saturday scoring, one weekday alternate if needed.</p>
-        </div>
-        <div class="card">
-          <div class="card-head">
-            <span class="chip chip-green">H2H</span>
-            <h4>Head-to-head</h4>
-          </div>
-          <p>Face another team weekly. Total points = picks (1) + goals (2) + assists (1).</p>
-        </div>
+    <h2>How it works</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Weekly picks</h3>
+        <p>Choose winners for 30 randomized matchups each week.<br>+1 point per correct pick.</p>
+      </div>
+      <div class="card">
+        <h3>Simple roster</h3>
+        <p>6F + 4D roster. Start 3 forwards and 2 defense.<br>Saturday scoring, weekday alternate if needed.</p>
+      </div>
+      <div class="card">
+        <h3>Head-to-head</h3>
+        <p>Face another team weekly. Total points = picks (1) + goals (2) + assists (1).</p>
       </div>
     </div>
   </section>
 
-  <!-- League Standings (Preview) -->
-  <section class="section section--tight">
-    <div class="container">
-      <div class="scoreboard-head">
-        <h2 class="section-title">League Standings</h2>
-        <a class="link" href="/standings">View full standings →</a>
-      </div>
-
-      <div class="scoreboard">
-        <div class="scoreboard-row scoreboard-row--head">
-          <div class="col col-team">Team</div>
-          <div class="col col-stat">W-L</div>
-          <div class="col col-stat">Picks</div>
-          <div class="col col-stat">Goals</div>
-          <div class="col col-stat">Assists</div>
-          <div class="col col-total">Total</div>
-        </div>
-
-        <div class="scoreboard-row">
-          <div class="col col-team">
-            <span class="avatar avatar-blue"></span>
-            Blue Line Bandits
-          </div>
-          <div class="col col-stat"><span class="pill">4-1</span></div>
-          <div class="col col-stat">16</div>
-          <div class="col col-stat">5</div>
-          <div class="col col-stat">3</div>
-          <div class="col col-total"><span class="total-chip">24</span></div>
-        </div>
-
-        <div class="scoreboard-row">
-          <div class="col col-team">
-            <span class="avatar avatar-red"></span>
-            Short Handed
-          </div>
-          <div class="col col-stat"><span class="pill">3-2</span></div>
-          <div class="col col-stat">20</div>
-          <div class="col col-stat">4</div>
-          <div class="col col-stat">2</div>
-          <div class="col col-total"><span class="total-chip">26</span></div>
-        </div>
-
-        <!-- Add more rows dynamically later -->
-      </div>
-    </div>
+  <!-- League Standings -->
+  <section class="section">
+    <h2>League Standings</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Team</th>
+          <th>W-L</th>
+          <th>Picks</th>
+          <th>Goals</th>
+          <th>Assists</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Blue Line Bandits</td>
+          <td>4-1</td>
+          <td>16</td>
+          <td>5</td>
+          <td>3</td>
+          <td>24</td>
+        </tr>
+        <tr>
+          <td>Short Handed</td>
+          <td>3-2</td>
+          <td>20</td>
+          <td>4</td>
+          <td>2</td>
+          <td>26</td>
+        </tr>
+      </tbody>
+    </table>
   </section>
 
-  <footer class="footer">
-    <div class="container foot-grid">
-      <p class="muted">© <span id="y"></span> Puck Picks. Built for head-to-head fun.</p>
-      <a class="link" href="/privacy">Privacy</a>
-    </div>
-  </footer>
+  <div class="footer">
+    © 2025 Puck Picks — Fantasy, without the fuss.
+  </div>
 
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>

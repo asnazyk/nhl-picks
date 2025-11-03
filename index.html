@@ -3,55 +3,36 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Puck Picks | Fantasy Hockey — finally easy.</title>
+  <title>Puck Picks — Fantasy Hockey, finally easy</title>
   <meta name="description" content="Weekly picks + simple roster. Head-to-head. No spreadsheets, no stress." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Chakra+Petch:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <!-- Topbar with full inline logo + text fallback -->
-  <header class="topbar topbar--sticky">
-    <div class="wrap">
+  <!-- Header -->
+  <header class="header">
+    <div class="container header__row">
       <a class="brand" href="/" aria-label="Puck Picks Home">
-        <!-- INLINE SVG LOGO (edgy puck + strike + wordmark via paths) -->
-        <svg class="logo" width="190" height="36" viewBox="0 0 760 144" fill="none"
-             xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Puck Picks">
+        <!-- Simple, bold inline SVG logo (always loads) -->
+        <svg class="brand__mark" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
           <defs>
-            <linearGradient id="ppGrad" x1="0" y1="0" x2="1" y2="1">
+            <linearGradient id="ppg" x1="0" y1="0" x2="1" y2="1">
               <stop offset="0" stop-color="#8AB4FF"/>
               <stop offset="1" stop-color="#E10600"/>
             </linearGradient>
           </defs>
-          <g transform="translate(8,8)">
-            <circle cx="40" cy="28" r="18" fill="#0B1E3A" stroke="#FFFFFF" stroke-width="3"/>
-            <ellipse cx="40" cy="34" rx="18" ry="6" fill="#0B1E3A" opacity=".55"/>
-            <path d="M8 28 L28 28" stroke="url(#ppGrad)" stroke-width="5" stroke-linecap="round" opacity=".9"/>
-            <path d="M10 36 L30 36" stroke="#8AB4FF" stroke-width="3" stroke-linecap="round" opacity=".55"/>
-            <circle cx="40" cy="28" r="26" stroke="#E10600" stroke-width="3" opacity=".35"/>
-          </g>
-          <!-- Wordmark paths (use currentColor → inherits white) -->
-          <g transform="translate(88,10)" fill="currentColor">
-            <path d="M0 90V0h42c22 0 34 10 34 28 0 18-12 30-34 30H20v32H0Zm20-50h20c9 0 14-4 14-12 0-8-5-12-14-12H20v24Z"/>
-            <path d="M90 64c0 21 12 32 34 32s34-11 34-32V0h-20v63c0 10-5 15-14 15s-14-5-14-15V0H90v64Z"/>
-            <path d="M200 72c0 16 12 24 34 24 13 0 25-3 34-8V72c-9 5-19 8-30 8-12 0-18-4-18-10 0-7 6-10 21-12 22-3 31-12 31-26 0-17-13-26-35-26-12 0-25 3-35 8v16c10-6 21-9 32-9 10 0 16 4 16 10 0 7-6 10-20 12-23 4-34 12-34 27Z"/>
-            <path d="M312 90V0h20v90h-20Z"/>
-            <rect x="340" y="0" width="14" height="90" fill="transparent"/>
-            <path d="M368 90V0h40c21 0 33 9 33 26 0 12-6 21-16 25l18 39h-22l-15-34h-18v34h-20Zm20-50h18c10 0 15-4 15-12s-5-12-15-12h-18v24Z"/>
-            <path d="M462 90V0h20v90h-20Z"/>
-            <path d="M506 45c0 28 17 47 42 47 10 0 20-3 28-8V68c-8 6-16 9-24 9-15 0-26-12-26-32s11-32 26-32c8 0 16 3 24 9V9c-8-5-18-8-28-8-25 0-42 19-42 47Z"/>
-            <path d="M620 90V0h20v36h34V0h20v90h-20V52h-34v38h-20Z"/>
-            <path d="M728 90h-24l30-45-30-45h24l18 29 18-29h24l-29 45 29 45h-24l-18-29-18 29Z"/>
-          </g>
+          <circle cx="16" cy="16" r="14" fill="#0B1E3A" stroke="#ffffff" stroke-width="2"/>
+          <ellipse cx="16" cy="20" rx="10" ry="4" fill="#09162c" opacity=".55"/>
+          <path d="M6 12h10" stroke="url(#ppg)" stroke-width="3" stroke-linecap="round"/>
         </svg>
-        <!-- Text fallback (shows if SVG fails) -->
-        <span class="brand__text">PUCK PICKS</span>
+        <span class="brand__word">PUCK PICKS</span>
       </a>
 
       <nav class="nav">
-        <a class="nav__link active" href="/">Home</a>
+        <a class="nav__link nav__link--active" href="/">Home</a>
         <a class="nav__link" href="/dashboard.html">Dashboard</a>
         <a class="nav__link" href="https://accounts.puck-picks.com/sign-in?redirect_url=https://puck-picks.com/dashboard.html">Login</a>
       </nav>
@@ -60,54 +41,41 @@
 
   <!-- Hero -->
   <section class="hero">
-    <div class="wrap hero__grid">
-      <div class="hero__copy">
-        <h1>Fantasy Hockey — finally easy.</h1>
-        <p class="lead">Weekly picks. Simple starters. Head-to-head. No spreadsheets, no stress.</p>
-        <div class="hero__cta">
-          <a class="btn btn--primary" href="/dashboard.html">Enter League</a>
-          <a class="btn btn--ghost" href="https://accounts.puck-picks.com/sign-up?redirect_url=https://puck-picks.com/dashboard.html">Create Account</a>
-        </div>
+    <div class="container hero__wrap">
+      <h1 class="hero__title">Fantasy Hockey — finally easy.</h1>
+      <p class="hero__lead">Weekly picks. Simple starters. Head-to-head. No spreadsheets, no stress.</p>
+      <div class="hero__cta">
+        <a class="btn btn--primary" href="/dashboard.html">Enter League</a>
+        <a class="btn btn--ghost" href="https://accounts.puck-picks.com/sign-up?redirect_url=https://puck-picks.com/dashboard.html">Create Account</a>
       </div>
-
-      <aside class="panel panel--live">
-        <div class="panel__badge">LIVE</div>
-        <ul class="bullets">
-          <li>Roster: 6F + 4D (start 3F + 2D)</li>
-          <li>Saturday scoring (+ one weekday alternate)</li>
-          <li>30 weekly game picks (1 pt per correct)</li>
-          <li>Goals = 2, Assists = 1</li>
-        </ul>
-        <a class="panel__link" href="#standings">View full standings →</a>
-      </aside>
     </div>
   </section>
 
   <!-- How it works -->
-  <section class="wrap blocks">
-    <h2>How it works</h2>
-    <div class="blocks__grid">
+  <section class="container section">
+    <h2 class="section__title">How it works</h2>
+    <div class="cards">
       <div class="card">
         <div class="card__icon">⚡</div>
-        <h3>Weekly picks</h3>
-        <p>Choose winners for 30 randomized matchups every week. +1 point for each correct pick.</p>
+        <div class="card__title">Weekly picks</div>
+        <div class="card__text">Choose winners for 30 randomized matchups every week. +1 point for each correct pick.</div>
       </div>
       <div class="card">
         <div class="card__icon">🏒</div>
-        <h3>Simple roster</h3>
-        <p>6F + 4D total. Start 3F + 2D. Saturday scoring, with one weekday alternate if needed.</p>
+        <div class="card__title">Simple roster</div>
+        <div class="card__text">6F + 4D total. Start 3F + 2D. Saturday scoring, with one weekday alternate if needed.</div>
       </div>
       <div class="card">
         <div class="card__icon">📊</div>
-        <h3>Head-to-head</h3>
-        <p>Face another team weekly. Total points = picks (1) + goals (2) + assists (1).</p>
+        <div class="card__title">Head-to-head</div>
+        <div class="card__text">Face another team weekly. Total points = picks (1) + goals (2) + assists (1).</div>
       </div>
     </div>
   </section>
 
   <!-- Standings preview -->
-  <section id="standings" class="wrap standings">
-    <h2>League Standings (Preview)</h2>
+  <section class="container section" id="standings">
+    <h2 class="section__title">League Standings (Preview)</h2>
     <div class="table">
       <div class="table__row table__row--head">
         <div>Team</div><div>Picks</div><div>Goals</div><div>Assists</div><div>Total</div>
@@ -125,18 +93,17 @@
   </section>
 
   <footer class="footer">
-    <div class="wrap footer__inner">
+    <div class="container footer__row">
       <div>© <span id="y"></span> Puck Picks</div>
-      <nav class="footer__nav">
+      <div class="footer__nav">
         <a href="/">Home</a>
         <a href="/dashboard.html">Dashboard</a>
         <a href="mailto:support@puck-picks.com">Support</a>
-      </nav>
+      </div>
     </div>
   </footer>
 
   <script>
-    // small helper to keep the year current
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
 </body>

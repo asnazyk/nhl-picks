@@ -1,128 +1,178 @@
-/* ================= Base ================= */
+/* ===== Puck Picks – global theme ===== */
 :root{
-  --navy:#0B1E3A;      /* header bg */
-  --navy-2:#0E2648;
-  --bg:#0A1224;        /* page bg */
-  --panel:#101a33;     /* cards/panels */
-  --line:rgba(255,255,255,.10);
-  --muted:#b8c7dd;
-  --text:#e8f0ff;
-  --white:#fff;
-  --red:#E10600;
-  --radius:16px;
+  --bg-900:#0b1220;         /* page background */
+  --bg-800:#10192e;         /* cards/sections bg */
+  --bg-700:#14203b;         /* table header bg */
+  --text-100:#e8eefb;       /* primary text */
+  --text-300:#c9d4ee;       /* secondary text */
+  --muted-400:#6b7a99;      /* subtle text */
+  --line-600:#2a3a5c;       /* borders */
+  --brand:#3b82f6;          /* blue */
+  --brand-700:#1e40af;
+  --accent:#ef4444;         /* red (goal light) */
+  --success:#22c55e;
+  --warning:#f59e0b;
+  --shadow-lg:0 10px 25px rgba(0,0,0,.35);
 }
 
 *{box-sizing:border-box}
 html,body{height:100%}
 body{
   margin:0;
-  font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  -webkit-font-smoothing:antialiased;
+  font:16px/1.55 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  color:var(--text-100);
+  background: radial-gradient(1200px 600px at 20% -10%, rgba(239,68,68,.15), transparent 55%),
+             radial-gradient(800px 500px at 85% -5%, rgba(59,130,246,.12), transparent 60%),
+             var(--bg-900);
 }
 
-/* Container */
-.container{max-width:1100px;margin:0 auto;padding:0 20px}
+/* Containers */
+.container{
+  width:100%;
+  max-width:1200px;
+  margin-inline:auto;
+  padding-inline:24px;
+}
 
-/* ================= Header ================= */
+/* Header / Nav */
 .header{
   position:sticky; top:0; z-index:50;
-  background:linear-gradient(180deg,var(--navy),var(--navy-2));
-  border-bottom:1px solid var(--line);
+  backdrop-filter:saturate(140%) blur(8px);
+  background:rgba(11,18,32,.85);
+  border-bottom:1px solid var(--line-600);
 }
-.header__row{
-  height:64px;
-  display:flex; align-items:center; justify-content:space-between; gap:20px;
+.header .bar{display:flex; align-items:center; justify-content:space-between; height:64px}
+.brand{display:flex; align-items:center; gap:12px; font-weight:700; letter-spacing:.5px}
+.brand-logo{
+  width:26px; height:26px; border-radius:50%;
+  border:2px solid var(--text-100); display:grid; place-items:center;
+  position:relative; overflow:hidden;
+}
+.brand-logo::before{
+  content:""; position:absolute; inset:-7px -14px auto auto;
+  width:48px; height:10px; transform:rotate(25deg);
+  background:linear-gradient(90deg, var(--accent), var(--brand));
+  filter:blur(1px);
+}
+.brand-name{font-weight:800}
+
+/* Nav links */
+.nav{display:flex; gap:10px}
+.nav a{
+  color:var(--text-300); text-decoration:none; padding:8px 14px; border-radius:10px;
+  border:1px solid transparent;
+}
+.nav a:hover{border-color:var(--line-600); color:var(--text-100)}
+.nav a.active{
+  color:var(--text-100);
+  background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,0));
+  border-color:var(--line-600);
 }
 
-.brand{display:flex; align-items:center; gap:10px; color:var(--white); text-decoration:none}
-.brand__mark{display:block}
-.brand__word{
-  font-family:"Chakra Petch",Inter,sans-serif;
-  font-weight:700; letter-spacing:.08em; font-size:18px;
-  color:var(--white);
-}
-
-.nav{display:flex; gap:16px}
-.nav__link{
-  color:#cfe0ff; text-decoration:none; font-weight:600;
-  padding:8px 10px; border-radius:10px;
-}
-.nav__link:hover{background:rgba(255,255,255,.08)}
-.nav__link--active{background:rgba(255,255,255,.14); color:#fff}
-
-/* ================= Hero ================= */
+/* Hero */
 .hero{
-  background: radial-gradient(1200px 400px at 40% -60%, rgba(226,6,0,.22), transparent 60%),
-              radial-gradient(1400px 500px at 75% -70%, rgba(138,180,255,.20), transparent 60%),
-              linear-gradient(180deg, #0b142b, #0a1326 68%, #0a1326 100%);
-  border-bottom:1px solid var(--line);
+  padding:72px 0 32px;
+  background: radial-gradient(600px 300px at 15% 0%, rgba(239,68,68,.12), transparent 60%),
+             radial-gradient(600px 300px at 80% -10%, rgba(59,130,246,.10), transparent 60%);
+  border-bottom:1px solid var(--line-600);
 }
-.hero__wrap{padding:60px 0}
-.hero__title{
-  font-family:"Chakra Petch",Inter,sans-serif;
-  font-size: clamp(28px, 3.2vw + 12px, 46px);
-  margin:0 0 8px 0; color:#fff;
+h1{
+  font-size:clamp(28px, 4.5vw, 48px);
+  line-height:1.15; margin:0 0 12px; font-weight:800; letter-spacing:.3px;
 }
-.hero__lead{color:var(--muted); margin:0 0 16px 0}
-.hero__cta{display:flex; gap:12px}
+.lede{margin:0 0 24px; color:var(--text-300)}
+.btn-row{display:flex; gap:12px}
 
-.btn{
-  display:inline-flex; align-items:center; justify-content:center;
-  height:44px; padding:0 16px; border-radius:10px;
-  font-weight:700; text-decoration:none; border:1px solid var(--line); color:#fff;
+/* Buttons – global */
+button, .btn{
+  appearance:none; border:1px solid var(--line-600); color:var(--text-100);
+  background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,0));
+  padding:10px 14px; border-radius:10px; cursor:pointer; font-weight:600;
+  transition:.15s ease;
 }
-.btn--primary{background:var(--red); border-color:transparent}
-.btn--primary:hover{filter:brightness(1.06)}
-.btn--ghost{background:transparent}
-.btn--ghost:hover{background:rgba(255,255,255,.08)}
-
-/* ================= Sections ================= */
-.section{padding:32px 0 44px}
-.section__title{font-size:22px;margin:0 0 14px}
-
-/* ================= Cards ================= */
-.cards{
-  display:grid; grid-template-columns:repeat(3,1fr); gap:16px;
+button:hover, .btn:hover{transform:translateY(-1px); box-shadow:var(--shadow-lg)}
+.btn-primary{
+  background:linear-gradient(180deg, rgba(239,68,68,.25), rgba(239,68,68,.15));
+  border-color:#7f1d1d;
 }
+.btn-primary:hover{background:linear-gradient(180deg, rgba(239,68,68,.35), rgba(239,68,68,.18))}
+.btn-outline{background:transparent}
+
+/* Cards / how it works */
+.section{padding:40px 0}
+.grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+@media (max-width:900px){.grid3{grid-template-columns:1fr}}
 .card{
-  background:var(--panel);
-  border:1px solid var(--line);
-  border-radius:var(--radius);
-  padding:16px;
+  background:var(--bg-800); border:1px solid var(--line-600); border-radius:14px; padding:16px;
+  box-shadow:0 1px 0 rgba(255,255,255,.04) inset;
 }
-.card__icon{font-size:18px;margin-bottom:8px}
-.card__title{font-weight:700;margin-bottom:4px}
-.card__text{color:var(--muted)}
+.card h4{margin:0 0 6px}
+.card p{margin:0; color:var(--text-300)}
+.badge{display:inline-grid; place-items:center; width:24px; height:24px; border-radius:6px; margin-right:8px}
+.badge.orange{background:#3d2a12; color:#f59e0b}
+.badge.pink{background:#3b2432; color:#fb7185}
+.badge.cyan{background:#153242; color:#22d3ee}
 
-/* ================= Table ================= */
-.table{
-  border:1px solid var(--line);
-  border-radius:12px; overflow:hidden;
+/* ===== Standings (home) ===== */
+.standings{padding:18px 0}
+.standings{overflow-x:auto}                 /* <-- prevent clipping */
+.standings table{
+  width:100%; min-width:820px;              /* <-- keep table wide enough */
+  border-collapse:collapse; background:var(--bg-800);
+  border:1px solid var(--line-600); border-radius:12px; overflow:hidden;
 }
-.table__row{
-  display:grid; grid-template-columns:3fr 1fr 1fr 1fr 1fr;
-  gap:12px; padding:12px 14px; background:#0b152b;
-  border-top:1px solid var(--line);
+.standings thead th{
+  background:var(--bg-700); color:var(--text-100); text-align:left; padding:10px 12px;
+  font-weight:700; border-bottom:1px solid var(--line-600);
 }
-.table__row--head{
-  position:sticky; top:64px; z-index:1;
-  background:#0e1b35; font-weight:700;
+.standings tbody td{
+  padding:10px 12px; color:var(--text-300); border-top:1px solid var(--line-600);
+}
+.standings tbody tr:hover{background:rgba(255,255,255,.03)}
+
+/* ===== Dashboard ===== */
+.page-title{font-size:28px; margin:12px 0 6px; font-weight:800}
+.subtle{color:var(--muted-400); margin:0 0 22px}
+
+/* Dashboard panels */
+.panel{
+  background:var(--bg-800); border:1px solid var(--line-600); border-radius:14px; padding:16px;
+  margin-bottom:18px;
 }
 
-/* ================= Footer ================= */
-.footer{border-top:1px solid var(--line); background:#0a1326}
-.footer__row{
-  height:64px; display:flex; align-items:center; justify-content:space-between;
-  color:#cfe0ff;
+/* Form controls – readable on dark */
+label{color:var(--text-100)}
+input[type="text"], input[type="number"], select, textarea{
+  width:100%; max-width:360px; color:var(--text-100);
+  background:var(--bg-900); border:1px solid var(--line-600);
+  border-radius:10px; padding:10px 12px; outline:none;
 }
-.footer__row a{color:#cfe0ff; text-decoration:none; margin-left:12px}
-.footer__row a:hover{text-decoration:underline}
+select{max-width:220px}
 
-/* ================= Responsive ================= */
-@media (max-width: 900px){
-  .cards{grid-template-columns:1fr}
-  .table__row{grid-template-columns:2fr 1fr 1fr 1fr 1fr}
-  .hero__wrap{padding:48px 0}
+/* Small chip buttons like “Bench” */
+.chip{
+  display:inline-flex; align-items:center; gap:8px;
+  background:var(--bg-900); border:1px solid var(--line-600); color:var(--text-100);
+  padding:6px 10px; border-radius:999px; font-size:13px; font-weight:600; cursor:pointer;
 }
+.chip:hover{background:rgba(255,255,255,.04)}
+.chip--muted{color:var(--text-300)}
+
+/* Toggle group (if used) */
+.toggle-group{display:flex; gap:8px; flex-wrap:wrap}
+
+/* Tables inside dashboard */
+.table{width:100%; border-collapse:collapse; border:1px solid var(--line-600); border-radius:12px; overflow:hidden}
+.table th,.table td{padding:10px 12px; border-top:1px solid var(--line-600)}
+.table th{background:var(--bg-700); text-align:left}
+
+/* Footer spacing helper */
+.spacer-32{height:32px}
+
+/* Links */
+a{color:#93c5fd}
+a:hover{color:#bfdbfe}
+
+/* Utility */
+.mt-12{margin-top:12px}
+.mt-20{margin-top:20px}

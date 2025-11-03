@@ -5,10 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Puck Picks — Teams & Rosters</title>
   <style>
-    :root{
-      --bg:#0B1220; --bg2:#10182B; --panel:#111B33; --line:rgba(255,255,255,.1);
-      --muted:#A0AEC0; --primary:#1D4ED8; --primaryH:#2563EB; --text:#E7ECF6;
-    }
+    :root{ --bg:#0B1220; --bg2:#10182B; --panel:#111B33; --line:rgba(255,255,255,.1);
+           --muted:#A0AEC0; --text:#E7ECF6; }
     *{box-sizing:border-box}
     body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,sans-serif}
     a{color:inherit;text-decoration:none}
@@ -30,15 +28,10 @@
     tbody tr:hover{background-color:rgba(255,255,255,.04)}
     .pos{font-weight:700;color:#CFE2FF;white-space:nowrap}
     footer{text-align:center;color:var(--muted);padding:28px 0;border-top:1px solid var(--line);margin-top:40px}
-    @media (max-width:720px){
-      .topbar{flex-direction:column;align-items:flex-start;gap:10px}
-      .nav{gap:24px;padding:8px 16px}
-      .nav a{font-size:1rem}
-    }
+    @media (max-width:720px){ .topbar{flex-direction:column;align-items:flex-start;gap:10px} .nav{gap:24px;padding:8px 16px} .nav a{font-size:1rem} }
   </style>
 </head>
 <body>
-  <!-- Header -->
   <header>
     <div class="navwrap">
       <img src="puck-picks-logo.png" alt="Puck Picks Logo" class="logo" />
@@ -53,10 +46,9 @@
     </div>
   </header>
 
-  <!-- Content -->
   <section class="section">
     <h1>Teams & Rosters</h1>
-    <p class="muted">Current team rosters by draft position. Update this page anytime by editing the table below.</p>
+    <p class="muted">Updated draft rosters.</p>
 
     <div class="tablewrap">
       <table>
@@ -72,8 +64,15 @@
           </tr>
         </thead>
         <tbody>
-          <tr><td class="pos">F</td><td>Connor McDavid</td><td>Nikita Kucherov</td><td>Leon Draisaitl</td><td>Nathan Mackinnon</td><td>Mitch Marner</td><td>Martin Nečas</td></tr>
-          <tr><td class="pos">F</td><td>Jack Eichel</td><td>David Pastrnak</td><td>William Nylander</td><td>Auston Matthews</td><td>Sidney Crosby</td><td>Adrian Kempe</td></tr>
-          <tr><td class="pos">F</td><td>Mikko Rantanen</td><td>Artemi Panarin</td><td>Clayton Keller</td><td>Kyle Connor</td><td>Sam Reinhart</td><td>Sebastian Aho</td></tr>
-          <tr><td class="pos">F</td><td>Filip Forsberg</td><td>Mark Scheifele</td><td>Connor Bedard</td><td>Nick Suzuki</td><td>John Tavares</td><td>Brayden Point</td></tr>
-          <tr><td class="pos">F</td><td>Alex Ovechkin</td><td>Robert Thomas</td><td>Frank Nazar</td><td>Kirill Kaprizov</td><td
+          <!-- Paste the exact rows here (Position + 6 team columns) -->
+          <!-- Example row:
+          <tr><td class="pos">F</td><td>Connor McDavid</td><td>Nikita Kucherov</td><td>Leon Draisaitl</td><td>Nathan MacKinnon</td><td>Mitch Marner</td><td>Martin Nečas</td></tr>
+          -->
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer>© 2025 Puck Picks — Fantasy Hockey That Doesn’t Suck!</footer>
+</body>
+</html>

@@ -5,170 +5,122 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Puck Picks — Fantasy Hockey, finally easy.</title>
   <style>
-    body {
-      background-color: #0B1220;
-      color: white;
-      font-family: "Inter", system-ui, -apple-system, sans-serif;
-      margin: 0;
-      padding: 0;
+    :root{
+      --bg:#0B1220;
+      --bg2:#10182B;
+      --panel:#111B33;
+      --line:rgba(255,255,255,.1);
+      --muted:#A0AEC0;
+      --primary:#1D4ED8;
+      --primaryH:#2563EB;
     }
-
-    header {
-      text-align: center;
-      padding: 35px 0 20px;
-      background: linear-gradient(to bottom, #0B1220, #10182B);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    *{box-sizing:border-box}
+    body{
+      margin:0;background:var(--bg);color:#fff;
+      font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
     }
-
-    h1, h2, h3 {
-      font-weight: 700;
-      margin: 0;
+    header{
+      text-align:center;padding:36px 0 22px;
+      background:linear-gradient(to bottom,var(--bg),var(--bg2));
+      border-bottom:1px solid var(--line);
     }
-
-    a.button {
-      background-color: #1D4ED8;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      margin: 5px;
-      display: inline-block;
-    }
-
-    a.button:hover {
-      background-color: #2563EB;
-    }
-
-    .section {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-
-    .cards {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-    }
-
-    .card {
-      background: #111B33;
-      padding: 20px;
-      border-radius: 12px;
-      flex: 1;
-      min-width: 260px;
-      border: 1px solid rgba(255,255,255,0.1);
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
-      background: #111B33;
-      border-radius: 10px;
-      overflow: hidden;
-    }
-
-    th, td {
-      padding: 12px;
-      text-align: left;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-
-    th {
-      background-color: #16213A;
-      text-transform: uppercase;
-      font-size: 13px;
-      letter-spacing: 0.05em;
-    }
-
-    tr:last-child td {
-      border-bottom: none;
-    }
-
-    .footer {
-      text-align: center;
-      color: #A0AEC0;
-      padding: 30px 0;
-      font-size: 14px;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      margin-top: 50px;
-    }
+    .section{max-width:960px;margin:40px auto;padding:0 20px}
+    h1,h2{margin:0 0 8px}
+    .muted{color:var(--muted)}
+    .btn{display:inline-block;padding:10px 20px;border-radius:8px;font-weight:600;text-decoration:none}
+    .btn-primary{background:var(--primary);color:#fff}
+    .btn-primary:hover{background:var(--primaryH)}
+    .btn-ghost{background:#374151;color:#fff}
+    .cards{display:flex;flex-wrap:wrap;gap:20px;justify-content:center}
+    .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px;min-width:280px;flex:1}
+    table{width:100%;border-collapse:collapse;background:var(--panel);margin-top:20px;border-radius:10px;overflow:hidden}
+    th,td{padding:12px;border-bottom:1px solid var(--line);text-align:left}
+    th{background:#16213A;text-transform:uppercase;font-size:13px;letter-spacing:.05em}
+    tr:last-child td{border-bottom:none}
+    .footer{text-align:center;color:var(--muted);padding:30px 0;border-top:1px solid var(--line);margin-top:50px}
+    /* keep SVG sharp on all displays */
+    svg{shape-rendering:geometricPrecision;text-rendering:geometricPrecision}
   </style>
 </head>
 <body>
 
-  <!-- Header + Approved Logo -->
+  <!-- HEADER WITH FIXED, PADDED SVG (no clipping, exact approved style) -->
   <header>
-    <svg viewBox="0 0 560 180" width="360" height="130" xmlns="http://www.w3.org/2000/svg">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 220" width="520" height="150" aria-label="Puck Picks logo">
       <defs>
         <linearGradient id="metal" x1="0" x2="1" y1="0" y2="0">
-          <stop offset="0%" stop-color="#f9fbff"/>
-          <stop offset="30%" stop-color="#d5dbea"/>
-          <stop offset="55%" stop-color="#ffffff"/>
-          <stop offset="100%" stop-color="#b9c6db"/>
+          <stop offset="0%"  stop-color="#F9FBFF"/>
+          <stop offset="32%" stop-color="#D5DBEA"/>
+          <stop offset="58%" stop-color="#FFFFFF"/>
+          <stop offset="100%" stop-color="#B9C6DB"/>
         </linearGradient>
-        <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
-          <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000000" flood-opacity="0.5"/>
+        <linearGradient id="ice" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0%" stop-color="#EAF2FF"/>
+          <stop offset="100%" stop-color="#C9D7F2"/>
+        </linearGradient>
+        <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+          <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity=".45"/>
         </filter>
       </defs>
 
-      <!-- Crossed sticks -->
-      <g transform="translate(20,115) scale(1.2)">
-        <path d="M0 20 L160 -40" stroke="white" stroke-width="12" stroke-linecap="round"/>
-        <path d="M160 -40 l20 -10" stroke="white" stroke-width="12" stroke-linecap="round"/>
-        <rect x="150" y="-45" width="50" height="18" rx="3" fill="#FFFFFF"/>
-      </g>
-      <g transform="translate(380,115) scale(1.2)">
-        <path d="M160 20 L0 -40" stroke="white" stroke-width="12" stroke-linecap="round"/>
-        <path d="M0 -40 l-20 -10" stroke="white" stroke-width="12" stroke-linecap="round"/>
-        <rect x="-40" y="-45" width="50" height="18" rx="3" fill="#FFFFFF"/>
-      </g>
+      <!-- Outer badge with extra padding so strokes never clip -->
+      <rect x="20" y="20" rx="22" width="720" height="180"
+            fill="none" stroke="#FFFFFF" stroke-width="6" filter="url(#shadow)"/>
 
-      <!-- Puck -->
-      <g transform="translate(280,38)">
-        <ellipse cx="0" cy="0" rx="32" ry="16" fill="#0B0F17" stroke="white" stroke-width="5"/>
-        <path d="M-70 -8 h42 M-70 0 h52 M-70 8 h32" stroke="white" stroke-width="5" stroke-linecap="round" opacity="0.9"/>
+      <!-- Crossed sticks (kept away from text) -->
+      <g transform="translate(70,135) scale(1.1)">
+        <path d="M0 22 L170 -42" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round"/>
+        <path d="M170 -42 l22 -10" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round"/>
+        <rect x="156" y="-48" width="54" height="20" rx="3" fill="#FFFFFF"/>
+      </g>
+      <g transform="translate(490,135) scale(1.1)">
+        <path d="M170 22 L0 -42" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round"/>
+        <path d="M0 -42 l-22 -10" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round"/>
+        <rect x="-40" y="-48" width="54" height="20" rx="3" fill="#FFFFFF"/>
       </g>
 
-      <!-- Outline box -->
-      <rect x="10" y="10" width="540" height="160" rx="20"
-            fill="none" stroke="white" stroke-width="6" filter="url(#shadow)"/>
+      <!-- Puck with motion lines -->
+      <g transform="translate(380,60)">
+        <ellipse cx="0" cy="0" rx="36" ry="18" fill="#0B0F17" stroke="#FFFFFF" stroke-width="5"/>
+        <path d="M-84 -8 h48 M-84 0 h62 M-84 8 h40"
+              stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" opacity=".95"/>
+      </g>
 
-      <!-- PUCK PICKS text -->
-      <g transform="translate(70,55)" filter="url(#shadow)">
-        <text x="0" y="80"
+      <!-- Ice ribbon behind text -->
+      <rect x="80" y="85" width="600" height="26" rx="7" fill="url(#ice)" opacity=".9"/>
+
+      <!-- Wordmark with big side padding + heavier stroke, no clipping -->
+      <g transform="translate(110,70)" filter="url(#shadow)">
+        <text x="0" y="85"
               font-family="Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif"
-              font-size="96" letter-spacing="2"
-              fill="url(#metal)" stroke="#0A0F18" stroke-width="6">PUCK</text>
-        <text x="300" y="80"
+              font-size="108" letter-spacing="3"
+              fill="url(#metal)" stroke="#0A0F18" stroke-width="7">PUCK</text>
+        <text x="370" y="85"
               font-family="Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif"
-              font-size="96" letter-spacing="2"
-              fill="url(#metal)" stroke="#0A0F18" stroke-width="6">PICKS</text>
+              font-size="108" letter-spacing="3"
+              fill="url(#metal)" stroke="#0A0F18" stroke-width="7">PICKS</text>
       </g>
 
       <!-- Tagline -->
-      <text x="280" y="152" text-anchor="middle"
+      <text x="380" y="176" text-anchor="middle"
             font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial"
-            font-size="20" fill="#C9D7F2" opacity="0.95" letter-spacing="0.5">
+            font-size="22" fill="#C9D7F2" opacity=".95" letter-spacing=".6">
         Fantasy, without the fuss.
       </text>
     </svg>
   </header>
 
-  <!-- Hero -->
+  <!-- HERO -->
   <section class="section" style="text-align:center;">
-    <h1 style="font-size:2.4rem; margin-bottom:10px;">Fantasy Hockey — finally easy.</h1>
-    <p style="color:#A0AEC0;">Weekly picks. Simple rosters. Head-to-head. No spreadsheets, no stress.</p>
+    <h1 style="font-size:2.4rem;margin-bottom:10px;">Fantasy Hockey — finally easy.</h1>
+    <p class="muted">Weekly picks. Simple rosters. Head-to-head. No spreadsheets, no stress.</p>
     <div style="margin-top:20px;">
-      <a href="dashboard.html" class="button">Enter League</a>
-      <a href="#" class="button" style="background:#374151;">Create Account</a>
+      <a class="btn btn-primary" href="dashboard.html">Enter League</a>
+      <a class="btn btn-ghost" href="#">Create Account</a>
     </div>
   </section>
 
-  <!-- How it works -->
+  <!-- HOW IT WORKS -->
   <section class="section">
     <h2>How it works</h2>
     <div class="cards">
@@ -187,44 +139,20 @@
     </div>
   </section>
 
-  <!-- Standings -->
+  <!-- STANDINGS -->
   <section class="section">
     <h2>League Standings</h2>
     <table>
       <thead>
-        <tr>
-          <th>Team</th>
-          <th>W-L</th>
-          <th>Picks</th>
-          <th>Goals</th>
-          <th>Assists</th>
-          <th>Total</th>
-        </tr>
+        <tr><th>Team</th><th>W-L</th><th>Picks</th><th>Goals</th><th>Assists</th><th>Total</th></tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Blue Line Bandits</td>
-          <td>4-1</td>
-          <td>16</td>
-          <td>5</td>
-          <td>3</td>
-          <td>24</td>
-        </tr>
-        <tr>
-          <td>Short Handed</td>
-          <td>3-2</td>
-          <td>20</td>
-          <td>4</td>
-          <td>2</td>
-          <td>26</td>
-        </tr>
+        <tr><td>Blue Line Bandits</td><td>4-1</td><td>16</td><td>5</td><td>3</td><td>24</td></tr>
+        <tr><td>Short Handed</td><td>3-2</td><td>20</td><td>4</td><td>2</td><td>26</td></tr>
       </tbody>
     </table>
   </section>
 
-  <div class="footer">
-    © 2025 Puck Picks — Fantasy, without the fuss.
-  </div>
-
+  <div class="footer">© 2025 Puck Picks — Fantasy, without the fuss.</div>
 </body>
 </html>

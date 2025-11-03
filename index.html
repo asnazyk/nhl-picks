@@ -1,104 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Puck Picks | Fantasy Hockey Simplified</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Puck Picks | Fantasy Hockey, Simplified</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
-<script src="/script.js"></script>
-
-<body>
-  <header class="header">
-    <div class="container">
-      <h1 class="logo">🏒 Puck Picks</h1>
-      <nav>
-        <ul class="nav-links">
-          <li><a href="#">Home</a></li>
-          <li><a href="dashboard.html">My Dashboard</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Login / Register</a></li>
-        </ul>
+<body class="ui">
+  <!-- Header -->
+  <header class="topbar">
+    <div class="wrap">
+      <a class="brand" href="/">🏒 Puck Picks</a>
+      <nav class="nav">
+        <a class="nav__link active" href="/">Home</a>
+        <a class="nav__link" href="/dashboard.html">Dashboard</a>
+        <a class="nav__link" href="https://accounts.puck-picks.com/sign-in?redirect_url=https://puck-picks.com/dashboard.html">Login</a>
       </nav>
     </div>
   </header>
 
+  <!-- Hero -->
   <section class="hero">
-    <div class="hero-content">
-      <h2>Fantasy Hockey Without the Headache</h2>
-      <p>Weekly picks, simple scoring, and real fun. Join the league that makes hockey fantasy exciting again!</p>
-      <a href="dashboard.html" class="btn-primary">Enter League</a>
+    <div class="wrap hero__inner">
+      <div class="hero__copy">
+        <h1>Fantasy Hockey — finally easy.</h1>
+        <p>Weekly picks. Simple scoring. Clean standings. No spreadsheets, no stress.</p>
+        <div class="hero__cta">
+          <a class="btn btn--primary" href="/dashboard.html">Enter League</a>
+          <a class="btn btn--ghost" href="https://accounts.puck-picks.com/sign-up?redirect_url=https://puck-picks.com/dashboard.html">Create Account</a>
+        </div>
+      </div>
+      <div class="hero__card">
+        <div class="badge">LIVE</div>
+        <h3>Current Leaders</h3>
+        <div class="rows mini">
+          <div class="row"><span class="avatar puck puck--navy"></span><span>Ice Breakers</span><b>124</b></div>
+          <div class="row"><span class="avatar puck puck--blue"></span><span>Goal Diggers</span><b>119</b></div>
+          <div class="row"><span class="avatar puck puck--grey"></span><span>Mighty Pucks</span><b>112</b></div>
+        </div>
+        <a class="link" href="/dashboard.html">View full standings →</a>
+      </div>
     </div>
   </section>
 
-  <section class="standings">
-    <div class="container">
-      <h3>League Standings</h3>
-      <table class="leaderboard">
-        <thead>
-          <tr>
-            <th>Rank</th>
-            <th>Team</th>
-            <th>Owner</th>
-            <th>Points</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>The Ice Breakers 🧊</td>
-            <td>Andy S</td>
-            <td>124</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Goal Diggers</td>
-            <td>Tiffany S</td>
-            <td>119</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Hat Trick Heroes</td>
-            <td>Greg L</td>
-            <td>112</td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <td>The Mighty Pucks</td>
-            <td>Kyle J</td>
-            <td>108</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <section class="features">
-    <div class="container">
-      <h3>Why You'll Love It</h3>
-      <div class="features-grid">
-        <div class="feature">
-          <h4>⚡ Simple Format</h4>
-          <p>Pick your winners, manage your players — no complicated stats or salary caps.</p>
+  <!-- Explainers -->
+  <section class="section">
+    <div class="wrap">
+      <h2 class="section__title">How it works</h2>
+      <div class="grid g3">
+        <div class="card">
+          <h3>⚡ Weekly picks</h3>
+          <p>Choose winners for 30 randomized matchups every week. +1 point for each correct pick.</p>
         </div>
-        <div class="feature">
-          <h4>🔥 Weekly Action</h4>
-          <p>Every week is a fresh start. Like fantasy football, but for hockey fans.</p>
+        <div class="card">
+          <h3>🏒 Simple roster</h3>
+          <p>Each team has 6F + 4D. Start 3F + 2D. Saturday scoring, with one weekday alternate if needed.</p>
         </div>
-        <div class="feature">
-          <h4>🏆 League Glory</h4>
-          <p>Track standings, view picks, and brag about your domination all season long.</p>
+        <div class="card">
+          <h3>📊 Head-to-head</h3>
+          <p>Face off vs another team weekly. Total points = picks + goals (2) + assists (1).</p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Standings Preview -->
+  <section class="section">
+    <div class="wrap">
+      <h2 class="section__title">League Standings (Preview)</h2>
+      <div class="table">
+        <div class="table__row table__row--head">
+          <div>Team</div><div>Picks</div><div>Goals</div><div>Assists</div><div>Total</div>
+        </div>
+        <div id="leaderboard" class="table__body">
+          <!-- script.js will render live demo / later Supabase -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer class="footer">
-    <div class="container">
-      <p>© 2025 Puck Picks — Fantasy Hockey Simplified</p>
+    <div class="wrap footer__inner">
+      <span>© <span id="year"></span> Puck Picks</span>
+      <span class="muted">Black · Navy · Grey · White with goal-light red accents</span>
     </div>
   </footer>
+
+  <script src="script.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
-

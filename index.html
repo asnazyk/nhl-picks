@@ -10,7 +10,10 @@
       --muted:#A0AEC0; --primary:#1D4ED8; --primaryH:#2563EB; --text:#E7ECF6;
     }
     *{box-sizing:border-box}
-    body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,sans-serif}
+    body{
+      margin:0;background:var(--bg);color:var(--text);
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,sans-serif;
+    }
     a{color:inherit;text-decoration:none}
     /* HEADER */
     header{
@@ -22,23 +25,28 @@
       display:flex;align-items:center;gap:16px;
     }
     .logo{
-      width:225px; /* increased size by 25% */
+      width:270px; /* increased by 50% */
       height:auto;display:block;flex:0 0 auto;
     }
     .topbar{
       display:flex;align-items:center;justify-content:flex-end;
-      gap:24px;flex:1;
+      gap:40px;flex:1;
     }
     .nav{
-      display:flex;gap:18px;align-items:center;
+      display:flex;gap:40px;align-items:center;
       background:rgba(255,255,255,.04);
-      border:1px solid var(--line);padding:8px 12px;border-radius:12px;
+      border:1px solid var(--line);
+      padding:10px 28px;border-radius:14px;
     }
-    .nav a{color:#DDE6FF;opacity:.9;font-weight:600}
-    .nav a:hover{opacity:1}
+    .nav a{
+      color:#DDE6FF;opacity:.95;
+      font-weight:700;font-size:1.05rem;
+      letter-spacing:.4px;transition:all .2s ease;
+    }
+    .nav a:hover{opacity:1;transform:translateY(-1px);}
     /* HERO */
     .section{max-width:1100px;margin:36px auto;padding:0 20px}
-    .hero h1{font-size:2.2rem;margin:.25rem 0 .5rem}
+    .hero h1{font-size:2.3rem;margin:.25rem 0 .5rem}
     .muted{color:var(--muted)}
     .btn{display:inline-block;padding:11px 18px;border-radius:10px;font-weight:600}
     .btn-primary{background:var(--primary);color:#fff}
@@ -64,19 +72,20 @@
     tr:last-child td{border-bottom:none}
     /* FOOTER */
     footer{text-align:center;color:var(--muted);padding:28px 0;border-top:1px solid var(--line);margin-top:50px}
-    /* Small screens */
+    /* RESPONSIVE */
     @media (max-width:720px){
       .topbar{flex-direction:column;align-items:flex-start;gap:10px}
-      .nav{padding:8px 10px}
+      .nav{gap:24px;padding:8px 16px}
+      .nav a{font-size:1rem}
     }
   </style>
 </head>
 <body>
 
-  <!-- HEADER (left-aligned logo + nav only) -->
+  <!-- HEADER -->
   <header>
     <div class="navwrap">
-      <img src="puck-picks-logo.png?v=4" alt="Puck Picks Logo" class="logo" />
+      <img src="puck-picks-logo.png?v=5" alt="Puck Picks Logo" class="logo" />
       <div class="topbar">
         <nav class="nav">
           <a href="index.html">Home</a>
@@ -105,12 +114,10 @@
         <h3>Weekly picks</h3>
         <p>Choose winners for 30 randomized matchups each week. +1 point per correct pick.</p>
       </div>
-
       <div class="card">
         <h3>Simple roster</h3>
         <p><strong>6 Forwards + 4 Defensemen</strong>. Start 3 forwards and 2 defensemen. Saturday scoring, weekday alternate if needed.</p>
       </div>
-
       <div class="card">
         <h3>Head-to-head</h3>
         <p>Face another team weekly. Total points combine pick accuracy with player production.</p>
@@ -123,37 +130,18 @@
     </div>
   </section>
 
-  <!-- LEAGUE STANDINGS -->
+  <!-- STANDINGS -->
   <section class="section">
     <h2>League Standings</h2>
     <table>
       <thead>
         <tr>
-          <th>Team</th>
-          <th>W-L</th>
-          <th>Picks</th>
-          <th>Goals</th>
-          <th>Assists</th>
-          <th>Total</th>
+          <th>Team</th><th>W-L</th><th>Picks</th><th>Goals</th><th>Assists</th><th>Total</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Blue Line Bandits</td>
-          <td>4-1</td>
-          <td>16</td>
-          <td>5</td>
-          <td>3</td>
-          <td>24</td>
-        </tr>
-        <tr>
-          <td>Short Handed</td>
-          <td>3-2</td>
-          <td>20</td>
-          <td>4</td>
-          <td>2</td>
-          <td>26</td>
-        </tr>
+        <tr><td>Blue Line Bandits</td><td>4-1</td><td>16</td><td>5</td><td>3</td><td>24</td></tr>
+        <tr><td>Short Handed</td><td>3-2</td><td>20</td><td>4</td><td>2</td><td>26</td></tr>
       </tbody>
     </table>
   </section>

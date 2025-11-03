@@ -1,181 +1,99 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Puck Picks | Dashboard</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
-  <script src="/script.js"></script>
-
-<body>
-  <!-- Top Nav -->
-  <header class="site-header">
-    <div class="container header-inner">
-      <div class="brand">
-        <span class="brand-icon">🏒</span>
-        <a href="/" class="brand-name">Puck Picks</a>
-      </div>
-      <nav class="main-nav">
-        <a href="/">Home</a>
-        <a class="active" href="/dashboard.html">My Dashboard</a>
-        <a href="#" id="logoutBtn">Logout</a>
+<body class="ui">
+  <!-- Header -->
+  <header class="topbar topbar--sticky">
+    <div class="wrap">
+      <a class="brand" href="/">🏒 Puck Picks</a>
+      <nav class="nav">
+        <a class="nav__link" href="/">Home</a>
+        <a class="nav__link active" href="/dashboard.html">Dashboard</a>
+        <a class="nav__link" href="https://accounts.puck-picks.com/sign-in?redirect_url=https://puck-picks.com/dashboard.html">Logout</a>
       </nav>
     </div>
   </header>
 
-  <main class="container pad-y-lg">
-    <!-- Page Title -->
-    <section class="section-title">
-      <h1 class="h1">My Dashboard</h1>
-      <p class="muted">Make your weekly picks and track your fantasy team—simple and fast.</p>
-    </section>
+  <main class="wrap pad-y">
+    <h1 class="page__title">My Dashboard</h1>
+    <p class="muted">Make your weekly picks, set starters (3F+2D), and track head-to-head results.</p>
 
-    <!-- 2-column layout -->
-    <section class="grid grid-2 gap-lg">
-      <!-- Left: Weekly Picks -->
-      <div class="card">
-        <div class="card-header">
-          <h2 class="h2">Weekly Picks</h2>
-          <span class="tag">Week 1</span>
+    <div class="grid g2 gap">
+      <!-- Weekly Roster -->
+      <section class="card">
+        <div class="card__head">
+          <h2>Weekly Lineup</h2>
+          <span class="tag">Week <span id="weekTag"></span></span>
         </div>
-        <div class="card-body">
-          <p class="muted">Pick winners for each matchup. One click per game.</p>
-
-          <div id="picksList" class="matchups">
-            <!-- Example rows; will be replaced by live data later -->
-            <div class="matchup-row">
-              <div class="teams">
-                <span class="team">Leafs</span>
-                <span class="vs">vs</span>
-                <span class="team">Canadiens</span>
-              </div>
-              <div class="pick-actions">
-                <button class="btn btn-outline btn-sm">Leafs</button>
-                <button class="btn btn-outline btn-sm">Canadiens</button>
-              </div>
-            </div>
-
-            <div class="matchup-row">
-              <div class="teams">
-                <span class="team">Oilers</span>
-                <span class="vs">vs</span>
-                <span class="team">Flames</span>
-              </div>
-              <div class="pick-actions">
-                <button class="btn btn-outline btn-sm">Oilers</button>
-                <button class="btn btn-outline btn-sm">Flames</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="card-actions">
-            <button id="savePicksBtn" class="btn btn-primary">Save Picks</button>
-            <span id="savePicksMsg" class="muted" style="margin-left:.75rem;"></span>
-          </div>
+        <div class="card__body">
+          <div id="weekly-roster"><!-- script renders --></div>
         </div>
-      </div>
+      </section>
 
-      <!-- Right: My Team + Leaderboard -->
-      <div class="column-stack">
-        <!-- My Team -->
-        <div class="card">
-          <div class="card-header">
-            <h2 class="h2">My Team</h2>
-          </div>
-          <div class="card-body">
-            <ul id="myTeam" class="player-list">
-              <!-- Static placeholders; will be dynamic later -->
-              <li><span class="avatar puck puck-blue"></span> Connor McDavid — <span class="muted">EDM</span></li>
-              <li><span class="avatar puck puck-red"></span> Auston Matthews — <span class="muted">TOR</span></li>
-              <li><span class="avatar puck puck-grey"></span> David Pastrňák — <span class="muted">BOS</span></li>
-              <li><span class="avatar puck puck-navy"></span> Cale Makar — <span class="muted">COL</span></li>
-              <li><span class="avatar puck puck-blue"></span> Nikita Kucherov — <span class="muted">TBL</span></li>
-              <li><span class="avatar puck puck-grey"></span> Leon Draisaitl — <span class="muted">EDM</span></li>
-              <li><span class="avatar puck puck-navy"></span> Kirill Kaprizov — <span class="muted">MIN</span></li>
-              <li><span class="avatar puck puck-red"></span> Jack Hughes — <span class="muted">NJD</span></li>
-              <li><span class="avatar puck puck-blue"></span> Artemi Panarin — <span class="muted">NYR</span></li>
-              <li><span class="avatar puck puck-grey"></span> Matthew Tkachuk — <span class="muted">FLA</span></li>
-            </ul>
-            <div class="card-actions">
-              <button class="btn btn-secondary btn-sm">Edit Team (soon)</button>
-            </div>
-          </div>
+      <!-- Game Picks -->
+      <section class="card">
+        <div class="card__head">
+          <h2>Game Picks (30)</h2>
+          <span class="muted">+1 point each correct</span>
         </div>
+        <div class="card__body">
+          <div id="game-picks"><!-- script renders --></div>
+        </div>
+      </section>
+    </div>
 
-        <!-- Leaderboard -->
-        <div class="card">
-          <div class="card-header">
-            <h2 class="h2">Leaderboard</h2>
-          </div>
-          <div class="card-body">
-            <div class="table-wrap">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th>Rank</th>
-                    <th>Team</th>
-                    <th>Points</th>
-                  </tr>
-                </thead>
-                <tbody id="leaderboardBody">
-                  <!-- Static examples for now -->
-                  <tr>
-                    <td>1</td>
-                    <td>
-                      <span class="avatar puck puck-navy"></span>
-                      Frostbite Flyers
-                    </td>
-                    <td>44</td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>
-                      <span class="avatar puck puck-blue"></span>
-                      Blue Line Bandits
-                    </td>
-                    <td>41</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>
-                      <span class="avatar puck puck-grey"></span>
-                      Neutral Zone Ninjas
-                    </td>
-                    <td>39</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <p class="muted" style="margin-top:.5rem;">(This will update live from Supabase in Phase 6.)</p>
-          </div>
+    <!-- Leaderboard & Head-to-Head -->
+    <div class="grid g2 gap">
+      <section class="card">
+        <div class="card__head"><h2>League Standings</h2></div>
+        <div class="card__body">
+          <div id="leaderboard"><!-- script renders --></div>
         </div>
+      </section>
+
+      <section class="card">
+        <div class="card__head"><h2>Head-to-Head</h2></div>
+        <div class="card__body">
+          <div id="head-to-head"><!-- script renders --></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Demo controls (optional; safe to keep) -->
+    <section class="card">
+      <div class="card__head"><h2>Demo Controls (Local)</h2></div>
+      <div class="card__body row gap-sm">
+        <button id="btn-simulate" class="btn btn--primary">Simulate Week Results</button>
+        <button id="btn-reset-week" class="btn btn--ghost">Reset This Week</button>
+        <button id="btn-swap-user" class="btn btn--ghost">Switch User (Alpha/Beta)</button>
+        <div class="muted">These affect local demo data only; we’ll hook Supabase next.</div>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>&copy; <span id="year"></span> Puck Picks. Making fantasy hockey simple.</p>
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <span>© <span id="year"></span> Puck Picks</span>
+      <span class="muted">Fantasy Hockey. One week at a time.</span>
     </div>
   </footer>
 
+  <script src="script.js"></script>
   <script>
-    // simple year stamp
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // placeholder “save” feedback
-    const saveBtn = document.getElementById('savePicksBtn');
-    const msg = document.getElementById('savePicksMsg');
-    if (saveBtn) {
-      saveBtn.addEventListener('click', () => {
-        msg.textContent = "Saved! (Demo only — will save to Supabase next.)";
-        setTimeout(() => msg.textContent = "", 2000);
-      });
-    }
+    // Show week label (Mon YYYY-MM-DD)
+    (function(){
+      const d = new Date(); const day = d.getDay(); const diff = (day+6)%7; // Mon=0
+      const monday = new Date(d); monday.setDate(d.getDate()-diff);
+      const y = monday.getFullYear(); const m = String(monday.getMonth()+1).padStart(2,'0'); const da = String(monday.getDate()).padStart(2,'0');
+      document.getElementById('weekTag').textContent = `${y}-${m}-${da}`;
+    })();
   </script>
 </body>
 </html>

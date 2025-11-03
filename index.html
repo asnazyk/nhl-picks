@@ -1,105 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Puck Picks — Fantasy Hockey, finally easy</title>
-  <meta name="description" content="Weekly picks + simple roster. Head-to-head. No spreadsheets, no stress." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Chakra+Petch:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Puck Picks — Fantasy Hockey, finally easy.</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <!-- Strong, condensed display + clean UI font -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Chakra+Petch:wght@600;700&display=swap" rel="stylesheet"/>
 </head>
 <body>
-
-  <!-- Header -->
+  <!-- Sticky Header -->
   <header class="header">
-    <div class="container header__row">
-      <a class="brand" href="/" aria-label="Puck Picks Home">
-        <!-- Simple, bold inline SVG logo (always loads) -->
-        <svg class="brand__mark" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
-          <defs>
-            <linearGradient id="ppg" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#8AB4FF"/>
-              <stop offset="1" stop-color="#E10600"/>
-            </linearGradient>
-          </defs>
-          <circle cx="16" cy="16" r="14" fill="#0B1E3A" stroke="#ffffff" stroke-width="2"/>
-          <ellipse cx="16" cy="20" rx="10" ry="4" fill="#09162c" opacity=".55"/>
-          <path d="M6 12h10" stroke="url(#ppg)" stroke-width="3" stroke-linecap="round"/>
-        </svg>
-        <span class="brand__word">PUCK PICKS</span>
+    <div class="container bar">
+      <a class="brand" href="/">
+        <!-- Inline SVG Wordmark (retro hockey vibe) -->
+        <div class="logo-wrap" aria-label="Puck Picks">
+          <svg class="pp-logo" viewBox="0 0 540 120" role="img" aria-labelledby="logoTitle">
+            <title id="logoTitle">Puck Picks</title>
+            <!-- goal light underline -->
+            <defs>
+              <linearGradient id="glow" x1="0" x2="1" y1="0" y2="0">
+                <stop offset="0" stop-color="#ef4444"/>
+                <stop offset="1" stop-color="#3b82f6"/>
+              </linearGradient>
+            </defs>
+            <!-- angled slab letters, simplified geometric (Chakra-style) -->
+            <g fill="#EAF1FF">
+              <path d="M24 94V26h60c24 0 38 13 38 34s-14 34-38 34H24Zm60-22c9 0 14-5 14-12s-5-12-14-12H48v24h36Z"/>
+              <path d="M144 94V26h26v68h-26Z"/>
+              <path d="M188 60c0-21 16-36 40-36s40 15 40 36-16 36-40 36-40-15-40-36Zm54 0c0-9-6-15-14-15s-14 6-14 15 6 15 14 15 14-6 14-15Z"/>
+              <path d="M300 94V26h26v46l34-46h30v68h-26V58l-34 44h-30Z"/>
+              <!-- divider dot -->
+              <circle cx="410" cy="60" r="5" fill="url(#glow)"/>
+              <!-- PICKS -->
+              <path d="M438 94V26h58c21 0 34 10 34 26 0 12-6 20-18 24l20 18h-32l-16-16h-20v16h-26Zm56-38c8 0 12-3 12-8s-4-8-12-8h-30v16h30Z"/>
+              <path d="M542 94V26h-26v68h26Z" transform="translate(-20)"/>
+            </g>
+            <!-- underline glow bar -->
+            <rect x="14" y="106" width="512" height="6" rx="3" fill="url(#glow)"/>
+          </svg>
+          <span class="tagline">Fantasy, without the fuss.</span>
+        </div>
       </a>
 
       <nav class="nav">
-        <a class="nav__link nav__link--active" href="/">Home</a>
-        <a class="nav__link" href="/dashboard.html">Dashboard</a>
-        <a class="nav__link" href="https://accounts.puck-picks.com/sign-in?redirect_url=https://puck-picks.com/dashboard.html">Login</a>
+        <a class="active" href="/">Home</a>
+        <a href="/dashboard.html">Dashboard</a>
+        <a href="/login">Login</a>
       </nav>
     </div>
   </header>
 
   <!-- Hero -->
   <section class="hero">
-    <div class="container hero__wrap">
-      <h1 class="hero__title">Fantasy Hockey — finally easy.</h1>
-      <p class="hero__lead">Weekly picks. Simple starters. Head-to-head. No spreadsheets, no stress.</p>
-      <div class="hero__cta">
-        <a class="btn btn--primary" href="/dashboard.html">Enter League</a>
-        <a class="btn btn--ghost" href="https://accounts.puck-picks.com/sign-up?redirect_url=https://puck-picks.com/dashboard.html">Create Account</a>
+    <div class="container">
+      <h1>Fantasy Hockey — finally easy.</h1>
+      <p class="lede">Weekly picks. Simple starters. Head-to-head. No spreadsheets, no stress.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="/dashboard.html">Enter League</a>
+        <a class="btn btn-outline" href="/register">Create Account</a>
       </div>
     </div>
   </section>
 
   <!-- How it works -->
-  <section class="container section">
-    <h2 class="section__title">How it works</h2>
-    <div class="cards">
-      <div class="card">
-        <div class="card__icon">⚡</div>
-        <div class="card__title">Weekly picks</div>
-        <div class="card__text">Choose winners for 30 randomized matchups every week. +1 point for each correct pick.</div>
-      </div>
-      <div class="card">
-        <div class="card__icon">🏒</div>
-        <div class="card__title">Simple roster</div>
-        <div class="card__text">6F + 4D total. Start 3F + 2D. Saturday scoring, with one weekday alternate if needed.</div>
-      </div>
-      <div class="card">
-        <div class="card__icon">📊</div>
-        <div class="card__title">Head-to-head</div>
-        <div class="card__text">Face another team weekly. Total points = picks (1) + goals (2) + assists (1).</div>
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">How it works</h2>
+      <div class="grid3">
+        <div class="card">
+          <div class="card-head">
+            <span class="chip chip-orange">30</span>
+            <h4>Weekly picks</h4>
+          </div>
+          <p>Choose winners for <strong>30 randomized matchups</strong> every week. <strong>+1 point</strong> per correct pick.</p>
+        </div>
+        <div class="card">
+          <div class="card-head">
+            <span class="chip chip-blue">3F + 2D</span>
+            <h4>Simple roster</h4>
+          </div>
+          <p>6F + 4D roster. Start <strong>3 forwards</strong> and <strong>2 defense</strong>. Saturday scoring, one weekday alternate if needed.</p>
+        </div>
+        <div class="card">
+          <div class="card-head">
+            <span class="chip chip-green">H2H</span>
+            <h4>Head-to-head</h4>
+          </div>
+          <p>Face another team weekly. Total points = picks (1) + goals (2) + assists (1).</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Standings preview -->
-  <section class="container section" id="standings">
-    <h2 class="section__title">League Standings (Preview)</h2>
-    <div class="table">
-      <div class="table__row table__row--head">
-        <div>Team</div><div>Picks</div><div>Goals</div><div>Assists</div><div>Total</div>
+  <!-- League Standings (Preview) -->
+  <section class="section section--tight">
+    <div class="container">
+      <div class="scoreboard-head">
+        <h2 class="section-title">League Standings</h2>
+        <a class="link" href="/standings">View full standings →</a>
       </div>
-      <div class="table__row">
-        <div>Loose Ends</div><div>18</div><div>6</div><div>4</div><div>28</div>
-      </div>
-      <div class="table__row">
-        <div>Blue Line Bandits</div><div>16</div><div>5</div><div>3</div><div>24</div>
-      </div>
-      <div class="table__row">
-        <div>Short Handed</div><div>20</div><div>4</div><div>2</div><div>26</div>
+
+      <div class="scoreboard">
+        <div class="scoreboard-row scoreboard-row--head">
+          <div class="col col-team">Team</div>
+          <div class="col col-stat">W-L</div>
+          <div class="col col-stat">Picks</div>
+          <div class="col col-stat">Goals</div>
+          <div class="col col-stat">Assists</div>
+          <div class="col col-total">Total</div>
+        </div>
+
+        <div class="scoreboard-row">
+          <div class="col col-team">
+            <span class="avatar avatar-blue"></span>
+            Blue Line Bandits
+          </div>
+          <div class="col col-stat"><span class="pill">4-1</span></div>
+          <div class="col col-stat">16</div>
+          <div class="col col-stat">5</div>
+          <div class="col col-stat">3</div>
+          <div class="col col-total"><span class="total-chip">24</span></div>
+        </div>
+
+        <div class="scoreboard-row">
+          <div class="col col-team">
+            <span class="avatar avatar-red"></span>
+            Short Handed
+          </div>
+          <div class="col col-stat"><span class="pill">3-2</span></div>
+          <div class="col col-stat">20</div>
+          <div class="col col-stat">4</div>
+          <div class="col col-stat">2</div>
+          <div class="col col-total"><span class="total-chip">26</span></div>
+        </div>
+
+        <!-- Add more rows dynamically later -->
       </div>
     </div>
   </section>
 
   <footer class="footer">
-    <div class="container footer__row">
-      <div>© <span id="y"></span> Puck Picks</div>
-      <div class="footer__nav">
-        <a href="/">Home</a>
-        <a href="/dashboard.html">Dashboard</a>
-        <a href="mailto:support@puck-picks.com">Support</a>
-      </div>
+    <div class="container foot-grid">
+      <p class="muted">© <span id="y"></span> Puck Picks. Built for head-to-head fun.</p>
+      <a class="link" href="/privacy">Privacy</a>
     </div>
   </footer>
 

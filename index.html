@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Puck Picks — Fantasy Hockey, finally easy.</title>
+  <title>Puck Picks — Fantasy Hockey</title>
   <style>
     :root{
       --bg:#0B1220; --bg2:#10182B; --panel:#111B33; --line:rgba(255,255,255,.1);
@@ -22,15 +22,12 @@
       display:flex;align-items:center;gap:16px;
     }
     .logo{
-      width:180px; /* smaller logo */
+      width:225px; /* increased size by 25% */
       height:auto;display:block;flex:0 0 auto;
     }
     .topbar{
-      display:flex;align-items:center;justify-content:space-between;
+      display:flex;align-items:center;justify-content:flex-end;
       gap:24px;flex:1;
-    }
-    .tagline{
-      font-weight:700;letter-spacing:.2px;opacity:.95;
     }
     .nav{
       display:flex;gap:18px;align-items:center;
@@ -71,18 +68,16 @@
     @media (max-width:720px){
       .topbar{flex-direction:column;align-items:flex-start;gap:10px}
       .nav{padding:8px 10px}
-      .tagline{font-size:1rem}
     }
   </style>
 </head>
 <body>
 
-  <!-- HEADER (small, left-aligned logo + nav + tagline) -->
+  <!-- HEADER (left-aligned logo + nav only) -->
   <header>
     <div class="navwrap">
-      <img src="puck-picks-logo.png?v=3" alt="Puck Picks Logo" class="logo" />
+      <img src="puck-picks-logo.png?v=4" alt="Puck Picks Logo" class="logo" />
       <div class="topbar">
-        <div class="tagline">Fantasy Hockey — Finally Easy</div>
         <nav class="nav">
           <a href="index.html">Home</a>
           <a href="dashboard.html">Dashboard</a>
@@ -164,7 +159,7 @@
   </section>
 
   <footer>
-    © 2025 Puck Picks — Fantasy, without the fuss.
+    © 2025 Puck Picks — Fantasy Hockey That Doesn’t Suck!
   </footer>
 </body>
 </html>
